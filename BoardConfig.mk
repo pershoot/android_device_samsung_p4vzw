@@ -22,6 +22,9 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # Use the non-open-source parts, if they're present
 -include vendor/samsung/p4vzw/BoardConfigVendor.mk
 
+# Override recovery key mapping
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/p4-common/recovery/recovery_ui_vzw.c
+
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 606076928
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 14472970240
 
