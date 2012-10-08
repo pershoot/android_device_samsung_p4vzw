@@ -22,9 +22,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/modules/bcmdhd.ko:system/lib/modules/bcmdhd.ko \
+    $(LOCAL_PATH)/modules/dhd.ko:system/lib/modules/dhd.ko \
     $(LOCAL_PATH)/modules/cifs.ko:system/lib/modules/cifs.ko \
     $(LOCAL_PATH)/modules/ntfs.ko:system/lib/modules/ntfs.ko
+
+# APNs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/apns/apns-conf.xml:system/etc/apns-conf.xml
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
@@ -37,6 +41,17 @@ $(call inherit-product-if-exists, vendor/samsung/p4vzw/p4vzw-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay
+
+PRODUCT_PACKAGES += \
+  Mms
+
+# Override
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps.conf:system/etc/gps.conf
+
+# GPS config
+PRODUCT_PROPERTY_OVERRIDES += \
+  my.gps=vzw
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 PRODUCT_NAME := p4vzw
