@@ -15,3 +15,6 @@ ro.com.google.clientidbase.ms=android-verizon
 ro.com.google.clientidbase.am=android-verizon
 ro.com.google.clientidbase.gmm=android-samsung
 ro.com.google.clientidbase.yt=android-verizon
+
+# Default to LTE/CDMA Network Mode
+ro.telephony.default_network=7
